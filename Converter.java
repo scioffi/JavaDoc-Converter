@@ -20,6 +20,7 @@ class Converter {
          or
          http://partyhorse.party
         */
+        // e.g. "http://www.nytimes.com" or "https://www.wikipedia.org"
         String page = pullFromURL(sc.nextLine());
         if (page != null)
             System.out.println(page);
@@ -28,6 +29,8 @@ class Converter {
 
     /**
      * Download an HTML webpage via HTTP or HTTPS (SSL connections use Java's default certificate settings)
+     * TODO: automatically add www. and then http:// if necessary when provided URL throws a MalformedURLException
+     * Download an HTML webpage via HTTP or HTTPS
      * TODO: automatically add www. and then http:// if necessary when provided URL throws a MalformedURLException
      * @param target URL string of javadoc web page to download
      * @return string of the webpage content (e.g. raw HTML)
