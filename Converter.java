@@ -13,12 +13,12 @@ class Converter {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter URL: ");
         /*
-         e.g.
-         http://www.nytimes.com
-         or
-         https://www.wikipedia.org
-         or
-         http://partyhorse.party
+        e.g.
+        http://www.nytimes.com
+        or
+        https://www.wikipedia.org
+        or
+        http://partyhorse.party
         */
         String page = pullFromURL(sc.nextLine());
         if (page != null)
