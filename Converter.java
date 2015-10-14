@@ -28,8 +28,7 @@ class Converter {
 
     /**
      * Download an HTML webpage via HTTP or HTTPS (SSL connections use Java's default certificate settings)
-     * TODO: automatically add www. and then http:// if necessary when provided URL throws a MalformedURLException
-     * @param target URL string of javadoc web page to download
+     * @param target URL string of javadoc web page to download. Must be exact, with correct protocol and subdomains.
      * @return string of the webpage content (e.g. raw HTML)
      */
     public static String pullFromURL(String target) {
@@ -38,9 +37,13 @@ class Converter {
         try {
             url = new URL(target);
         } catch (MalformedURLException e) {
-            System.err.println("ERR:Invalid URL");
-            System.err.println(e.getMessage());
-            return null;
+            try {
+                url = new URL("http://" + target);
+            } catch (MalformedURLException e1) {
+                System.err.println("ERR:Invalid URL");
+                System.err.println(e.getMessage());
+                return null;
+            }
         }
 
         URLConnection connection;
@@ -57,8 +60,12 @@ class Converter {
             return null;
         }
 
+        System.out.println("Connecting to " + url.toString());
+
         StringBuilder content = new StringBuilder();
         String nextln;
+
+        System.out.println();
 
         for(;;) {
             try {
@@ -82,7 +89,8 @@ class Converter {
             return null;
         }
 
-        content.deleteCharAt(content.length()-1);
+        if (content.length() > 0)
+            content.deleteCharAt(content.length()-1);
         return content.toString();
     }
 
