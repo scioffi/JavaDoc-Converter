@@ -13,7 +13,6 @@ import java.util.Scanner;
  * @author Michael Incardona
  * @author Steven Cioffi
  */
-
 class Converter {
 
 	public static void main(String[] args) {
