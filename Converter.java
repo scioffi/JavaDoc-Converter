@@ -92,6 +92,6 @@ class Converter {
         if (content.length() > 0)
             content.deleteCharAt(content.length()-1);
         return content.toString();
-    }
+    } //PullFromURL
 
 }
