@@ -7,6 +7,13 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.Scanner;
 
+/**
+ * Class to pull a Javadoc from a provided URL and convert it into skeleton code
+ *
+ * @author Michael Incardona
+ * @author Steven Cioffi
+ */
+
 class Converter {
 
 	public static void main(String[] args) {
